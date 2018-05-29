@@ -37,12 +37,21 @@ curl -u $TOKEN:x-oauth-basic --request DELETE https://api.github.com/repos/$REPO
 
 ## State Labels
 # CODE REVIEW
-curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"Code Review","color":"2b7505"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"code review","color":"fbca04","description":"Code being reviewed"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"pull request","color":"fbca04","description":"This is a Pull Request"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"greenkeeper","color":"fbca04","description":"3rd Party App"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
 
 ## Function Labels
-# DEVOPS
-curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"DevOps","color":"f9ce68"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
-# FRONT-END
-curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"Front-End","color":"f9ce68"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
-# BACK-END
-curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"Back-End","color":"f9ce68"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+# devops|frontend|backend|data
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"devops","description":"Issue related to deployment|running|monitoring","color":"1d76db"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"frontend","description":"This is front-end related","color":"1d76db"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"backend","description":"This is back-end related","color":"1d76db"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"data","description":"This is Data related","color":"1d76db"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+
+## Issue type Labels
+# blocked|bug|duplicate|invalid
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"blocked","description":"This issue is blocked by something","color":"ee0701"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"bug","description":"Something is not working","color":"ee0701"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"duplicate","description":"This issue or Pull Request already exists","color":"ee0701"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"invalid","description":"This is not right","color":"ee0701"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
+curl -u $TOKEN:x-oauth-basic --include --request POST --data '{"name":"enhancement","description":"New feature or request","color":"0e8a16"}' "https://api.github.com/repos/$REPO_USER/$REPO_NAME/labels"
