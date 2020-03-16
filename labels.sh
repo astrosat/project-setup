@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set -x
-LOGFILE="project.log"
+LOGFILE="labels.log"
 TOKEN=$1
 ORG=$2
 REPO_NAME=$3
@@ -11,7 +11,7 @@ echo 'This script will remove the GitHub default labels and create the labels we
 NOTE: A personal access token is required to access private repos.'
 
 # Delete unwanted default labels
-curl -u $TOKEN:x-oauth-basic --request DELETE https://api.github.com/repos/${ORG}/${REPO_NAME}/labels/code%20review >> $LOGFILE 2>&1
+curl -u $TOKEN:x-oauth-basic --request DELETE https://api.github.com/repos/${ORG}/${REPO_NAME}/labels/code%20review > $LOGFILE 2>&1
 curl -u $TOKEN:x-oauth-basic --request DELETE https://api.github.com/repos/${ORG}/${REPO_NAME}/labels/pull%20request >> $LOGFILE 2>&1
 curl -u $TOKEN:x-oauth-basic --request DELETE https://api.github.com/repos/${ORG}/${REPO_NAME}/labels/greenkeeper >> $LOGFILE 2>&1
 
